@@ -1,0 +1,15 @@
+  
+[
+    {
+        "ParameterKey": "EnvironmentName",
+        "ParameterValue": "registration"
+    },
+    {
+        "ParameterKey": "SshKey",
+        "ParameterValue": "devops-project"
+    },
+    {
+        "ParameterKey":"DesiredInstances",
+        "ParameterValue": "3"
+    }
+]

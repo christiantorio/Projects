@@ -1,0 +1,29 @@
+Description: >
+    Creating the EKS cluster
+Parameters:
+  EnvironmentName:
+    Description: An Environment name that will be prefixed to resources
+    Type: String
+Resources:
+  RegistrationEKS:
+    Type: AWS::EKS::Cluster
+    Properties:
+      Version: '1.15'
+      RoleArn: arn:aws:iam::566038293516:instance-profile/eks-role-1
+      ResourcesVpcConfig:
+        SecurityGroupIds:
+        - Fn::ImportValue:
+            !Sub "${EnvironmentName}-SCG"
+        SubnetIds:
+            Fn::Split:
+                - ","
+                - Fn::ImportValue:
+                      Fn::Sub: ${EnvironmentName}-SBN-IDS
+Outputs:
+  EksId:
+    Description: Reference to EKS
+    Value: !Ref RegistrationEKS
+    Export: 
+        Name: !Sub ${EnvironmentName}-EKS
+
+

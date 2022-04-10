@@ -1,0 +1,1 @@
+aws cloudformation update-stack --stack-name registration-eks --template-body file://infrastructure/eks.yml --parameters file://infrastructure/eks_parameters.json

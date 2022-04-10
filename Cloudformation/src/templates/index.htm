@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .container{
+            margin-top: 20px;
+        }
+        .registrationform{
+            margin-top: 20px
+        }
+    </style>
+</head>
+<body>
+    <div class = 'container'>
+        <h2>Registration Form</h2>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        <form class = 'registrationform' action = '/register' method = 'post'>
+            <div class = 'form-group row'>
+                <label for="InputEmail" class="col-sm-2 col-form-label">Email Address</label>
+                    <div class = 'col-sm-5'>
+                        <input type="email" class='form-control' name="email" aria-describedby = 'emailhelp' placeholder="Enter Email">
+                    </div>
+            </div>
+            <div class = 'form-group row'>
+                <label for="InputFirstName" class="col-sm-2 col-form-label">First Name</label>
+                    <div class = 'col-sm-5'>
+                        <input type="text" class='form-control' name ="firstname" aria-describedby = 'firstname' placeholder="Enter First Name">
+                    </div>
+            </div>
+            <div class = 'form-group row'>
+                <label for="InputLastName" class="col-sm-2 col-form-label">Last Name</label>
+                    <div class = 'col-sm-5'>
+                        <input type="text" class='form-control' name = "lastname" aria-describedby = 'lastname' placeholder="Enter Last Name">
+                    </div>
+            </div>
+            <div class = 'form-group row'>
+                <label for="InputPassword1" class="col-sm-2 col-form-label">Password</label>
+                    <div class = 'col-sm-5'>
+                        <input type="password" class='form-control' name ="password1" aria-describedby = 'Password' placeholder="Enter Password">
+                    </div>
+            </div>
+            <div class = 'form-group row'>
+                <label for="InputPassword2" class="col-sm-2 col-form-label">Confirm Password</label>
+                    <div class = 'col-sm-5'>
+                        <input type="password" class='form-control' name ="password2" aria-describedby = 'PasswordConfirm' placeholder="Confirm Password">
+                    </div>
+            </div>
+        </form>
+            <div class="form-group row">
+            <div class="col-sm-10">
+                <form action="/submitted" method = 'Post'>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
