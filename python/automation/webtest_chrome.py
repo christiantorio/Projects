@@ -4,7 +4,8 @@ import time
 
 # Main Function
 if __name__ == '__main__':
-
+    
+    #options list
 	options = webdriver.ChromeOptions()
 	options.add_argument("--start-maximized")
 	options.add_argument("--log-level=3")
@@ -15,9 +16,22 @@ if __name__ == '__main__':
 	driver.set_window_size(1920,1080)
 
 	# Send a get request to the url
-	driver.get('https://www.geeksforgeeks.org/')
+	print("Going to python website...")
+	driver.get("https://www.python.org")
+	print("This is the title of the website: " + driver.title)
+    
+	print("Looking for something in search bar...")
+	element = driver.find_element_by_id("id-search-field")
+	element.send_keys("flask", Keys.ENTER)
+	time.sleep(10)
+   
+	driver.back()
+    
+    #using option to leave open
+	time.sleep(10)
  
-	time.sleep(60)
+    #close window
 	driver.quit()
  
-	print("Done")
+    # just showing terminal its done
+	print("Done.......")
