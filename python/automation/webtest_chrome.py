@@ -19,6 +19,10 @@ if __name__ == '__main__':
 	print("Going to python website...")
 	driver.get("https://www.python.org")
 	print("This is the title of the website: " + driver.title)
+	print(".....")
+	print("assert test...")
+	assert "Google" in driver.title
+
     
 	print("Looking for something in search bar...")
 	element = driver.find_element_by_id("id-search-field")
