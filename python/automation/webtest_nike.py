@@ -21,9 +21,8 @@ class WebSearch(unittest.TestCase):
         print("Testing how to find elements")
         driver = self.driver
         driver.get("http://www.nike.org")
-        elem = driver.find_element_by_id("hf_title_sigin_membershipt")
-        self.assertIn("Sign In", driver.id)
-        
+        signin = driver.find_element_by_class_name("hf_title_sigin_membership")
+        self.assertIn("Sign In", driver.signin)
         
     def tearDown(self):
         self.driver.close()
